@@ -18,7 +18,6 @@ public class Playerr : MonoBehaviour
         pSprite = GetComponent<SpriteRenderer>();
     }
 
-    // 위치이동으로 구현
     private void FixedUpdate()
     {
         Vector2 nextVec = inputVec * speed * Time.fixedDeltaTime;
@@ -29,7 +28,7 @@ public class Playerr : MonoBehaviour
     {
         if(inputVec.x != 0)
         {
-            pSprite.flipX = inputVec.x > 0;
+            pSprite.flipX = inputVec.x < 0;
         }
     }
 

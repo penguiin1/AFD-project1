@@ -139,7 +139,7 @@ TextureImporter:
       name: bat_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 5
         y: 10
         width: 75
         height: 55
@@ -150,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cac027ac0977be64e8f8ee1d8c30db43
-      internalID: -1009571390
+      spriteID: cace5557dec270c479246d238bb0af78
+      internalID: 111330106
       vertices: []
       indices: 
       edges: []
@@ -167,7 +167,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bat_0: -1009571390
+      bat_0: 111330106
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
