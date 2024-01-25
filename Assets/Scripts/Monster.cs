@@ -7,6 +7,17 @@ public class Monster : MonoBehaviour
 {
     public float mSpeed;
     public Rigidbody2D target;
+    public int mHealth;//현재체력
+    public int maxmHealth;//최대체력
+    public int mDamage;
+    
+    public void Init(int damage)
+    {
+        this.mDamage = mDamage;
+
+
+    }
+
 
     private float distance;
     private Vector2 currentPosition;
@@ -49,5 +60,33 @@ public class Monster : MonoBehaviour
             }
         }
     }
+    private void OnEnable()
+    {
+        isLive = true;
+        maxmHealth = 100;
+        mHealth = maxmHealth;
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Weapon"))
+            return;
+        //return;
+
+
+        mHealth -= collision.GetComponent<Pick>().damage;
+    
+
+        if (mHealth > 0) { 
+
+        }
+        else
+        {
+            Dead();
+        }
+    }
+    void Dead()
+    {
+        gameObject.SetActive(false);
+    }
 }

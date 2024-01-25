@@ -2,20 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager
+public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
-
-    public static GameManager Instance
+    public static GameManager instance;
+    public Playerr player;
+    // Start is called before the first frame update
+    public int mHealth;
+    public int maxmHealth = 100;
+    private void Awake()
     {
-        get
-        {
-            if(instance == null)
-            {
-                instance = new GameManager();
-            }
-            return instance;
-        }
+        instance = this;
     }
-
 }

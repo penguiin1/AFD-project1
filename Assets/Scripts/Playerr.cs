@@ -7,7 +7,8 @@ public class Playerr : MonoBehaviour
 {
     public float speed; // 플레이어 이동속도
     public Vector2 inputVec;
-
+    public int pHealth;//현재체력
+    public int maxpHealth;//최대체력
     Rigidbody2D pRigid;
     SpriteRenderer pSprite;
     
@@ -31,7 +32,36 @@ public class Playerr : MonoBehaviour
             pSprite.flipX = inputVec.x < 0;
         }
     }
+    private void OnEnable()
+    {
+       
+        maxpHealth = 1000;
+        pHealth = maxpHealth;
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Monster"))
+            return;
+       
+
+
+        pHealth -= collision.GetComponent<Monster>().mDamage;
+
+
+        if (pHealth > 0)
+        {
+
+        }
+        else
+        {
+            Dead();
+        }
+    }
+    void Dead()
+    {
+        gameObject.SetActive(false);
+    }
     void OnMove(InputValue value)
     {
         inputVec = value.Get<Vector2>();
